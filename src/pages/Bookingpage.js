@@ -5,21 +5,22 @@ const Bookingpage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
+  const [isBooked, setIsBooked] = useState(false); // State to track booking status
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const bookingData = { id: Date.now(), name, email, date }; // Add a unique ID for each booking
-    // Retrieve existing bookings or initialize an empty array if none exist
     const existingBookings = JSON.parse(localStorage.getItem('bookingDetails')) || [];
     existingBookings.push(bookingData);
     localStorage.setItem('bookingDetails', JSON.stringify(existingBookings));
+    setIsBooked(true); // Update booking status to true
     alert("Room Booked Successfully!");
   };
-  
 
   const handleCancelBooking = () => {
     localStorage.removeItem('bookingDetails');
+    setIsBooked(false); // Update booking status to false
     alert("Booking Cancelled!");
   };
 
@@ -68,9 +69,11 @@ const Bookingpage = () => {
           <button type="submit" className="btn-primary">
             Book Room
           </button>
-          <button type="button" onClick={handleCancelBooking} className="btn-primary">
-            Cancel Booking
-          </button>
+          {isBooked && ( // Show the "Cancel Booking" button only if room is booked
+            <button type="button" onClick={handleCancelBooking} className="btn-primary">
+              Cancel Booking
+            </button>
+          )}
         </form>
         <div className="back-button-container">
           <button onClick={handleGoBack} className="btn-primary back-button">
