@@ -1,6 +1,6 @@
-// ParentComponent.js
+
 import React, { useState } from 'react';
-import Bookingpage from './Bookingpage'; // Adjust the import path as necessary
+import Bookingpage from './Bookingpage'; 
 
 const ParentComponent = () => {
   const [bookingDetails, setBookingDetails] = useState({});

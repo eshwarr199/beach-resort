@@ -10,7 +10,6 @@ export default class RoomProvider extends Component {
     sortedRooms: [],
     featuredRooms: [],
     loading: true,
-    //
     type: "all",
     capacity: 1,
     price: 0,

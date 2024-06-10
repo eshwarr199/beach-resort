@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import Services from "../components/Services";
 import FeaturedRooms from "../components/FeaturedRooms";
-import Footer from "../components/Footer"; // Import the Footer component
+import Footer from "../components/Footer"; 
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <Hero>
         <Banner
           title="luxurious rooms"
-          subtitle="deluxe rooms starting at $299"
+          subtitle="deluxe rooms starting at ₹299"
         >
           <Link to="/rooms" className="btn-primary">
             our rooms

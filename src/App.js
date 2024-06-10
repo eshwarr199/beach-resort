@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/help" component={Help} />
         <Route exact path="/bookings" component={Bookings} />
         <Route exact path="/rooms/:slug" component={SingleRoom} />
-        <Route exact path="/book" component={Bookingpage} /> {/* Add route to Bookingpage */}
+        <Route exact path="/book" component={Bookingpage} /> 
         <Route component={Error} />
       </Switch>
     </>
