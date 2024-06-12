@@ -1,5 +1,6 @@
 import React from "react";
 import Room from "./Room";
+
 const RoomsList = ({ rooms }) => {
   if (rooms.length === 0) {
     return (
@@ -8,12 +9,40 @@ const RoomsList = ({ rooms }) => {
       </div>
     );
   }
+
+  const sections = {
+    single: "Single Section",
+    double: "Double Section",
+    family: "Family Section",
+    presidential: "Presidential Section"
+  };
+
+  const categorizeRooms = (rooms) => {
+    return rooms.reduce((acc, room) => {
+      const section = room.type; // Assuming room type corresponds to the section
+      if (!acc[section]) {
+        acc[section] = [];
+      }
+      acc[section].push(room);
+      return acc;
+    }, {});
+  };
+
+  const categorizedRooms = categorizeRooms(rooms);
+
   return (
     <section className="roomslist">
       <div className="roomslist-center">
-        {rooms.map(item => {
-          return <Room key={item.id} room={item} />;
-        })}
+        {Object.keys(categorizedRooms).map((section) => (
+          <div key={section}>
+            <h2>{sections[section]}</h2>
+            <div className="room-rows">
+              {categorizedRooms[section].map((room, index) => (
+                <Room key={room.id} room={room} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
