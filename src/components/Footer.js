@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaWhatsapp, FaTwitter,FaPhone } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaTwitter, FaPhone, FaYoutube } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="footerhome">
@@ -20,7 +20,8 @@ const Footer = () => {
           <h4>Follow Us</h4>
           <div className="footer-icons">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          
+          <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+
           <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
         </div>
           <div className="social-links">
